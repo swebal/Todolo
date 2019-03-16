@@ -24,6 +24,7 @@ class UserLocationHelper: NSObject, CLLocationManagerDelegate {
     }
     
     func authorize() {
+        // Om du ändrar nedan till "...always..." så måste du även klicka i "Location updates" för "Background modes" under "Capabilities" för ditt projekt!
         locationManager.requestWhenInUseAuthorization() // Hänger ihop med vad man måste ange i info.plist
     }
     

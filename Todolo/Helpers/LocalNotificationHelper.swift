@@ -44,7 +44,7 @@ class LocalNotificationHelper : NSObject, UNUserNotificationCenterDelegate {
                 content.title = title
                 content.body = body
                 content.userInfo["extra"] = extra
-                content.sound = UNNotificationSound.default()
+                content.sound = UNNotificationSound.default
                 content.categoryIdentifier = LocalNotificationHelper.categoryIdentifier
                 // Datum
                 let calendar = Calendar.current

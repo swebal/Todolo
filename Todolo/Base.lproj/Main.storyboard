@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AdN-Tk-fG8">
-                                <rect key="frame" x="0.0" y="194" width="375" height="473"/>
+                                <rect key="frame" x="0.0" y="156" width="375" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ph5-v7-eeU" style="IBUITableViewCellStyleDefault" id="llC-dT-HDf">
@@ -84,34 +84,29 @@
                                     <segue destination="R5o-jq-il5" kind="presentation" identifier="scanSegue" id="VbS-61-SaE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAv-Cf-XBY">
-                                <rect key="frame" x="16" y="156" width="122" height="30"/>
-                                <state key="normal" title="Background fetch"/>
-                                <connections>
-                                    <action selector="backgroundFetchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vx1-rb-Y2i"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oAv-Cf-XBY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0Ol-SD-AZg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6zd-wW-VL9" secondAttribute="trailing" constant="16" id="16S-u5-zG8"/>
                             <constraint firstItem="6zd-wW-VL9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="1ER-f3-K9u"/>
                             <constraint firstItem="xOm-aN-lbi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9NJ-Yr-aqq"/>
-                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="top" secondItem="oAv-Cf-XBY" secondAttribute="bottom" constant="8" id="EzR-Bb-aRX"/>
+                            <constraint firstItem="xOm-aN-lbi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rg7-rc-RZJ" secondAttribute="trailing" constant="8" id="A1t-yG-RVg"/>
                             <constraint firstItem="rg7-rc-RZJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Fc6-re-GQL"/>
+                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="top" secondItem="eO1-Fg-God" secondAttribute="bottom" constant="8" id="G7P-3t-GBp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AdN-Tk-fG8" secondAttribute="bottom" id="I7c-HI-VsF"/>
                             <constraint firstItem="3mD-gy-8Ik" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ISe-6A-9nk"/>
                             <constraint firstItem="eO1-Fg-God" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="MGK-IO-j0J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Irn-ah-kbh" secondAttribute="trailing" constant="16" id="N9f-pb-H7u"/>
                             <constraint firstItem="AdN-Tk-fG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PuY-0S-qpa"/>
+                            <constraint firstItem="3mD-gy-8Ik" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eO1-Fg-God" secondAttribute="trailing" constant="8" id="Pua-kO-rwV"/>
                             <constraint firstItem="Irn-ah-kbh" firstAttribute="top" secondItem="6zd-wW-VL9" secondAttribute="bottom" constant="8" id="RrJ-IE-srr"/>
                             <constraint firstItem="xOm-aN-lbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Uge-MC-Nyc"/>
+                            <constraint firstItem="Irn-ah-kbh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3mD-gy-8Ik" secondAttribute="trailing" constant="8" id="eOn-vG-DPB"/>
                             <constraint firstItem="3mD-gy-8Ik" firstAttribute="top" secondItem="6zd-wW-VL9" secondAttribute="bottom" constant="8" id="gi0-3A-bw3"/>
-                            <constraint firstItem="oAv-Cf-XBY" firstAttribute="top" secondItem="eO1-Fg-God" secondAttribute="bottom" constant="8" id="hHS-7W-6PV"/>
                             <constraint firstItem="eO1-Fg-God" firstAttribute="top" secondItem="rg7-rc-RZJ" secondAttribute="bottom" constant="8" id="iVD-3x-dQx"/>
                             <constraint firstItem="rg7-rc-RZJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="lPD-iZ-34w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AdN-Tk-fG8" secondAttribute="trailing" id="p13-db-val"/>
+                            <constraint firstItem="6zd-wW-VL9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xOm-aN-lbi" secondAttribute="trailing" constant="8" id="pFW-J1-aG0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -123,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="-457"/>
+            <point key="canvasLocation" x="1181.5999999999999" y="-457.42128935532236"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="2rb-im-DUI">
@@ -147,6 +142,7 @@
                         <constraints>
                             <constraint firstItem="7IF-0R-Alu" firstAttribute="leading" secondItem="CRR-jG-P9l" secondAttribute="leading" constant="16" id="2Ka-e8-Igb"/>
                             <constraint firstItem="7IF-0R-Alu" firstAttribute="top" secondItem="CRR-jG-P9l" secondAttribute="top" id="NO5-W5-Igt"/>
+                            <constraint firstItem="CRR-jG-P9l" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7IF-0R-Alu" secondAttribute="trailing" constant="16" id="qh8-tY-TI3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CRR-jG-P9l"/>
                     </view>
@@ -194,6 +190,7 @@
                             <constraint firstItem="9rH-dl-SIr" firstAttribute="top" secondItem="bK7-hT-kDx" secondAttribute="bottom" constant="8" id="PmX-te-9r9"/>
                             <constraint firstItem="PMW-Em-TZc" firstAttribute="top" secondItem="XsY-wb-tGa" secondAttribute="top" constant="8" id="RCX-b7-qB3"/>
                             <constraint firstItem="XsY-wb-tGa" firstAttribute="trailing" secondItem="PMW-Em-TZc" secondAttribute="trailing" constant="16" id="S1x-mj-0es"/>
+                            <constraint firstItem="PMW-Em-TZc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bK7-hT-kDx" secondAttribute="trailing" constant="8" id="WTk-04-ld0"/>
                             <constraint firstItem="XsY-wb-tGa" firstAttribute="trailing" secondItem="9rH-dl-SIr" secondAttribute="trailing" id="cp5-zX-FKX"/>
                             <constraint firstItem="XsY-wb-tGa" firstAttribute="bottom" secondItem="9rH-dl-SIr" secondAttribute="bottom" id="fsn-pV-Uhn"/>
                             <constraint firstItem="9rH-dl-SIr" firstAttribute="leading" secondItem="XsY-wb-tGa" secondAttribute="leading" id="n0t-ic-zpM"/>

@@ -20,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Använda kameran för att alltid kunna veta vad du gör</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Använda GPS för att alltid veta var du går</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -45,9 +53,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>Använda kameran för att alltid kunna veta vad du gör</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Använda GPS för att alltid veta var du går</string>
 </dict>
 </plist>

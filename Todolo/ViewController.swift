@@ -97,7 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Skapa lokal notis om 10 sekunder
         let date = Date(timeIntervalSinceNow: 10)
         LocalNotificationHelper.shared.scheduleLocalNotification(date: date, id:noteId, title: "Hej", body: "Det här är innehållet i en notis", extra: "Gömd info jag vill skicka med, kanske ett id?")
-        let alert = UIAlertController(title: "Note scheduled", message: "Successfully scheduled local notification in 30 seconds", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Note scheduled", message: "Successfully scheduled local notification in 10 seconds", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -114,10 +114,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.importPhoto(library: true)
         }))
         present(actionSheet, animated: true)
-    }
-    
-    @IBAction func backgroundFetchPressed(_ sender: UIButton) {
-        // Aktivera bakgrundshämtning av data
     }
     
     // MARK: Table view
@@ -147,7 +143,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         if id == noteId {
             // Ändra färg på knapp när notisen tas emot
-            noteButton.setTitleColor(UIColor.green, for: UIControlState.normal)
+            noteButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
         }
     }
     
@@ -158,7 +154,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         if id == noteId {
             // Ändra färg på knapp när notisen tas emot
-            noteButton.setTitleColor(UIColor.red, for: UIControlState.normal)
+            noteButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
         }
     }
     
@@ -173,9 +169,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         // Använd UIImagePickerControllerOriginalImage nedan om du inte visar editorn ovan!
-        guard let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage else {
+        guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else {
             return
         }
         print("Will add image to view...")
@@ -184,8 +184,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let ratio = imageView.frame.size.width / imageView.frame.size.height
         let thumbnail = CGFloat(100)
         let randomX = CGFloat(arc4random_uniform(UInt32(self.view.frame.size.width-thumbnail)))
-        let randomY = CGFloat(arc4random_uniform(UInt32(self.view.frame.size.height-thumbnail*ratio)))
-        imageView.frame = CGRect(x: randomX, y: randomY, width: thumbnail, height: thumbnail*ratio)
+        let randomY = CGFloat(arc4random_uniform(UInt32(self.view.frame.size.height-thumbnail/ratio)))
+        imageView.frame = CGRect(x: randomX, y: randomY, width: thumbnail, height: thumbnail/ratio)
         self.view .addSubview(imageView)
         // Lägg till en tap gesture så att man kan klicka bort bilden från vyn
         imageView.isUserInteractionEnabled = true
@@ -221,3 +221,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}

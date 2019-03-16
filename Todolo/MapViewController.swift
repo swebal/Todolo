@@ -39,8 +39,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if !didShowUserLocationOnce {
             didShowUserLocationOnce = true
             // Flytta och zooma kartan
-            let mapSpan = MKCoordinateSpanMake(0.01, 0.01)
-            let mapRegion = MKCoordinateRegionMake(userLocation.coordinate, mapSpan)
+            let mapSpan = MKCoordinateSpan.init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let mapRegion = MKCoordinateRegion.init(center: userLocation.coordinate, span: mapSpan)
             myMapView.setRegion(mapRegion, animated: true)
         }
     }
@@ -51,8 +51,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             return
         }
         // Flytta och zooma kartan
-        let mapSpan = MKCoordinateSpanMake(0.01, 0.01)
-        let mapRegion = MKCoordinateRegionMake(userLocation.coordinate, mapSpan)
+        let mapSpan = MKCoordinateSpan.init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let mapRegion = MKCoordinateRegion.init(center: userLocation.coordinate, span: mapSpan)
         myMapView.setRegion(mapRegion, animated: true)
     }
     
