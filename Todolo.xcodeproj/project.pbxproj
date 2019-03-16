@@ -14,6 +14,8 @@
 		2893CA532227E6290031C42D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2893CA512227E6290031C42D /* Main.storyboard */; };
 		2893CA552227E62F0031C42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2893CA542227E62F0031C42D /* Assets.xcassets */; };
 		2893CA582227E62F0031C42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2893CA562227E62F0031C42D /* LaunchScreen.storyboard */; };
+		61C5576C223CFBA80052466D /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */; };
+		61C5576E223D31870052466D /* WebRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C5576D223D31870052466D /* WebRequestHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		2893CA542227E62F0031C42D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2893CA572227E62F0031C42D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2893CA592227E62F0031C42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
+		61C5576D223D31870052466D /* WebRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRequestHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +63,25 @@
 			isa = PBXGroup;
 			children = (
 				2893CA4D2227E6290031C42D /* AppDelegate.swift */,
-				2893CA4F2227E6290031C42D /* ViewController.swift */,
-				2893CA512227E6290031C42D /* Main.storyboard */,
 				2893CA542227E62F0031C42D /* Assets.xcassets */,
-				2893CA562227E62F0031C42D /* LaunchScreen.storyboard */,
+				61C5576F223D32360052466D /* Helpers */,
 				2893CA592227E62F0031C42D /* Info.plist */,
+				2893CA562227E62F0031C42D /* LaunchScreen.storyboard */,
+				2893CA512227E6290031C42D /* Main.storyboard */,
 				283047A622311EFD00E5BCC5 /* Post.swift */,
 				283047A422311EE200E5BCC5 /* Todo.swift */,
+				2893CA4F2227E6290031C42D /* ViewController.swift */,
 			);
 			path = Todolo;
+			sourceTree = "<group>";
+		};
+		61C5576F223D32360052466D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */,
+				61C5576D223D31870052466D /* WebRequestHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +157,10 @@
 			files = (
 				2893CA502227E6290031C42D /* ViewController.swift in Sources */,
 				283047A522311EE200E5BCC5 /* Todo.swift in Sources */,
+				61C5576E223D31870052466D /* WebRequestHelper.swift in Sources */,
 				2893CA4E2227E6290031C42D /* AppDelegate.swift in Sources */,
 				283047A722311EFD00E5BCC5 /* Post.swift in Sources */,
+				61C5576C223CFBA80052466D /* LocalNotificationHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,15 +303,16 @@
 		2893CA5D2227E62F0031C42D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98E76C6VVS;
+				DEVELOPMENT_TEAM = 7NDP9NC3QR;
 				INFOPLIST_FILE = "$(SRCROOT)/Todolo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = se.theappfactory.EnkelSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = se.theappfactory.Todolo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,15 +322,16 @@
 		2893CA5E2227E62F0031C42D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98E76C6VVS;
+				DEVELOPMENT_TEAM = 7NDP9NC3QR;
 				INFOPLIST_FILE = "$(SRCROOT)/Todolo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = se.theappfactory.EnkelSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = se.theappfactory.Todolo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

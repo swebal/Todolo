@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r57-je-2U6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r57-je-2U6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,18 +34,18 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AdN-Tk-fG8">
-                                <rect key="frame" x="16" y="118" width="343" height="529"/>
+                                <rect key="frame" x="0.0" y="156" width="375" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ph5-v7-eeU" style="IBUITableViewCellStyleDefault" id="llC-dT-HDf">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="llC-dT-HDf" id="gv0-vE-FLq">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ph5-v7-eeU">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -60,28 +60,37 @@
                                 <rect key="frame" x="281" y="80" width="78" height="30"/>
                                 <state key="normal" title="Post object"/>
                                 <connections>
-                                    <action selector="getPostPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PKh-X6-Fh8"/>
                                     <action selector="postObjectPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0vR-xW-p8j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eO1-Fg-God">
+                                <rect key="frame" x="20" y="118" width="71" height="30"/>
+                                <state key="normal" title="Local note"/>
+                                <connections>
+                                    <action selector="localNotePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbP-WP-sPo"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6zd-wW-VL9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="1ER-f3-K9u"/>
+                            <constraint firstItem="eO1-Fg-God" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dk4-ml-5Tg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xOm-aN-lbi" secondAttribute="trailing" constant="16" id="F9D-Cx-5tw"/>
                             <constraint firstItem="rg7-rc-RZJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Fc6-re-GQL"/>
                             <constraint firstItem="6zd-wW-VL9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GT1-ev-bLg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AdN-Tk-fG8" secondAttribute="bottom" constant="20" id="I7c-HI-VsF"/>
-                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="top" secondItem="6zd-wW-VL9" secondAttribute="bottom" constant="8" id="KHh-EJ-deQ"/>
-                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PuY-0S-qpa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AdN-Tk-fG8" secondAttribute="bottom" id="I7c-HI-VsF"/>
+                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PuY-0S-qpa"/>
                             <constraint firstItem="xOm-aN-lbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Uge-MC-Nyc"/>
+                            <constraint firstItem="eO1-Fg-God" firstAttribute="top" secondItem="rg7-rc-RZJ" secondAttribute="bottom" constant="8" id="iVD-3x-dQx"/>
                             <constraint firstItem="rg7-rc-RZJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="lPD-iZ-34w"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AdN-Tk-fG8" secondAttribute="trailing" constant="16" id="p13-db-val"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AdN-Tk-fG8" secondAttribute="trailing" id="p13-db-val"/>
+                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="top" secondItem="eO1-Fg-God" secondAttribute="bottom" constant="8" id="xhR-hP-rUu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Todolo" id="hjg-IO-h3O"/>
                     <connections>
+                        <outlet property="noteButton" destination="eO1-Fg-God" id="eL6-8B-Tra"/>
                         <outlet property="objectTableView" destination="AdN-Tk-fG8" id="Ld2-1r-BVK"/>
                     </connections>
                 </viewController>

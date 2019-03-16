@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var todos = [Todo]()
     var posts = [Post]()
     var showPosts = false
+    let notificationIdentity = "ButtonColor"
     
     @IBOutlet weak var objectTableView: UITableView!
     
@@ -20,11 +22,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.objectTableView.dataSource = self
         self.objectTableView.delegate = self
+        // Övervaka när en notis tas emot av LocalNotificationCenter (ifall appen är aktiv)
+        let noteName = Notification.Name(rawValue: notificationIdentity)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.changeButtonColor), name: noteName, object: nil)
     }
-
+    
+    @IBOutlet weak var noteButton: UIButton!
+    
+    @objc func changeButtonColor() {
+        // Ändra färg på knapp när notisen tas emot
+        noteButton.setTitleColor(UIColor.green, for: UIControlState.normal)
+    }
+    
     @IBAction func getTodoPressed(_ sender: UIButton) {
         print("Get todos button pressed")
-        get(method: "todos") { (array) in
+        WebRequestHelper.shared.getArray(method: "todos") { (array) in
             for obj in array {
                 let todo = Todo(data: obj)
                 self.todos.append(todo)
@@ -37,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func getPostPressed(_ sender: UIButton) {
         print("Get posts button pressed")
-        get(method: "posts") { (array) in
+        WebRequestHelper.shared.getArray(method: "posts") { (array) in
             for obj in array {
                 let post = Post(data: obj)
                 self.posts.append(post)
@@ -54,84 +66,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let randomIndex = Int(arc4random_uniform(UInt32(todos.count)))
             let todo = todos[randomIndex]
             let data = todo.data()
-            post(method: "todos", params: data) { (statusCode) in
+            WebRequestHelper.shared.postDictionary(method: "todos", params: data) { (statusCode) in
                 print("Status: \(statusCode)")
             }
         } else if posts.count > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(posts.count)))
             let post = posts[randomIndex]
             let data = post.data()
-            self.post(method: "posts", params: data) { (statusCode) in
+            WebRequestHelper.shared.postDictionary(method: "posts", params: data) { (statusCode) in
                 print("Status: \(statusCode)")
             }
         }
     }
     
-    // 1) Skapa request med url
-    // 2) Ange http typ och parametrar (om post)
-    // 3) Skapa session och task från request
-    // 4) Ta emot data (om !error) göra om data -> foundation-objekt (array, dictionary, string etc.)
-    // 5) Returnera foundation-objekt till den som anropade metoden (anropa ui-tråden)
-    
-    func get(method:String, onCompletion:@escaping([[String:Any]]) -> Void) {
-        
-        let base = "https://jsonplaceholder.typicode.com/"
-        
-        guard let url = URL(string: base+method) else {
-            print("Invalid url!")
-            return
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            guard let json = data else {
-                return
-            }
-            guard let array = try? JSONSerialization.jsonObject(with: json, options: []) as! [[String:Any]] else {
-                DispatchQueue.main.async {
-                    onCompletion([[String:Any]]())
-                }
-                return
-            }
-            DispatchQueue.main.async {
-                onCompletion(array)
-            }
-        }
-        task.resume()
-    }
-    
-    func post(method:String, params:[String:Any], onCompletion:@escaping(Int) -> Void) {
-        
-        let base = "https://jsonplaceholder.typicode.com/"
-        
-        guard let url = URL(string: base+method) else {
-            print("Invalid url!")
-            return
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: params, options: []) else {
-            print("Could not parse params as body!")
-            return
-        }
-        urlRequest.httpBody = httpBody
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            guard let httpResponse = response as? HTTPURLResponse else {
-                print("Invalid response")
-                DispatchQueue.main.async {
-                    onCompletion(0)
-                }
-                return
-            }
-            DispatchQueue.main.async {
-                onCompletion(httpResponse.statusCode)
-            }
-        }
-        task.resume()
+    @IBAction func localNotePressed(_ sender: UIButton) {
+        // Skapa notis
+        let date = Date(timeIntervalSinceNow: 30) // Bör inte vara mindre än 30 sek (prova att öka denna om notisen inte dyker upp)
+        LocalNotificationHelper.shared.scheduleLocalNotification(date: date, id:notificationIdentity, title: "Hej", body: "Det här är innehållet i en notis", extra: "Gömd info jag vill skicka med, kanske ett id?")
+        let alert = UIAlertController(title: "Note scheduled", message: "Successfully scheduled local notification in 30 seconds", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
