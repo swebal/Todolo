@@ -20,21 +20,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-wW-VL9">
-                                <rect key="frame" x="154" y="80" width="67" height="30"/>
-                                <state key="normal" title="Get posts"/>
+                                <rect key="frame" x="268" y="80" width="91" height="30"/>
+                                <state key="normal" title="User location"/>
                                 <connections>
-                                    <action selector="getPostPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4G2-Su-kbd"/>
+                                    <segue destination="je6-sN-qWu" kind="show" id="Zem-5k-WGs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg7-rc-RZJ">
-                                <rect key="frame" x="16" y="80" width="68" height="30"/>
-                                <state key="normal" title="Get todos"/>
+                                <rect key="frame" x="16" y="80" width="85" height="30"/>
+                                <state key="normal" title="Get Request"/>
                                 <connections>
                                     <action selector="getTodoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jNQ-bH-u2l"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AdN-Tk-fG8">
-                                <rect key="frame" x="0.0" y="156" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="194" width="375" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ph5-v7-eeU" style="IBUITableViewCellStyleDefault" id="llC-dT-HDf">
@@ -57,34 +57,52 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOm-aN-lbi">
-                                <rect key="frame" x="281" y="80" width="78" height="30"/>
-                                <state key="normal" title="Post object"/>
+                                <rect key="frame" x="142" y="80" width="91" height="30"/>
+                                <state key="normal" title="Post Request"/>
                                 <connections>
                                     <action selector="postObjectPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0vR-xW-p8j"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eO1-Fg-God">
-                                <rect key="frame" x="20" y="118" width="71" height="30"/>
-                                <state key="normal" title="Local note"/>
+                                <rect key="frame" x="16" y="118" width="117" height="30"/>
+                                <state key="normal" title="Local notification"/>
                                 <connections>
                                     <action selector="localNotePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbP-WP-sPo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-gy-8Ik">
+                                <rect key="frame" x="163.5" y="118" width="48" height="30"/>
+                                <state key="normal" title="Photos"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irn-ah-kbh">
+                                <rect key="frame" x="264" y="118" width="95" height="30"/>
+                                <state key="normal" title="Scan barcode"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAv-Cf-XBY">
+                                <rect key="frame" x="16" y="156" width="122" height="30"/>
+                                <state key="normal" title="Background fetch"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="oAv-Cf-XBY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0Ol-SD-AZg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6zd-wW-VL9" secondAttribute="trailing" constant="16" id="16S-u5-zG8"/>
                             <constraint firstItem="6zd-wW-VL9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="1ER-f3-K9u"/>
-                            <constraint firstItem="eO1-Fg-God" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dk4-ml-5Tg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xOm-aN-lbi" secondAttribute="trailing" constant="16" id="F9D-Cx-5tw"/>
+                            <constraint firstItem="xOm-aN-lbi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9NJ-Yr-aqq"/>
+                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="top" secondItem="oAv-Cf-XBY" secondAttribute="bottom" constant="8" id="EzR-Bb-aRX"/>
                             <constraint firstItem="rg7-rc-RZJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Fc6-re-GQL"/>
-                            <constraint firstItem="6zd-wW-VL9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GT1-ev-bLg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AdN-Tk-fG8" secondAttribute="bottom" id="I7c-HI-VsF"/>
+                            <constraint firstItem="3mD-gy-8Ik" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ISe-6A-9nk"/>
+                            <constraint firstItem="eO1-Fg-God" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="MGK-IO-j0J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Irn-ah-kbh" secondAttribute="trailing" constant="16" id="N9f-pb-H7u"/>
                             <constraint firstItem="AdN-Tk-fG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PuY-0S-qpa"/>
+                            <constraint firstItem="Irn-ah-kbh" firstAttribute="top" secondItem="6zd-wW-VL9" secondAttribute="bottom" constant="8" id="RrJ-IE-srr"/>
                             <constraint firstItem="xOm-aN-lbi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Uge-MC-Nyc"/>
+                            <constraint firstItem="3mD-gy-8Ik" firstAttribute="top" secondItem="6zd-wW-VL9" secondAttribute="bottom" constant="8" id="gi0-3A-bw3"/>
+                            <constraint firstItem="oAv-Cf-XBY" firstAttribute="top" secondItem="eO1-Fg-God" secondAttribute="bottom" constant="8" id="hHS-7W-6PV"/>
                             <constraint firstItem="eO1-Fg-God" firstAttribute="top" secondItem="rg7-rc-RZJ" secondAttribute="bottom" constant="8" id="iVD-3x-dQx"/>
                             <constraint firstItem="rg7-rc-RZJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="lPD-iZ-34w"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AdN-Tk-fG8" secondAttribute="trailing" id="p13-db-val"/>
-                            <constraint firstItem="AdN-Tk-fG8" firstAttribute="top" secondItem="eO1-Fg-God" secondAttribute="bottom" constant="8" id="xhR-hP-rUu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -96,7 +114,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1183" y="-457"/>
+        </scene>
+        <!--Maps-->
+        <scene sceneID="QJd-ki-VgR">
+            <objects>
+                <viewController id="je6-sN-qWu" customClass="MapViewController" customModule="Todolo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="47v-Wm-b9B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rH-dl-SIr">
+                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                                <connections>
+                                    <outlet property="delegate" destination="je6-sN-qWu" id="NZK-By-nMZ"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bK7-hT-kDx">
+                                <rect key="frame" x="16" y="72" width="150" height="30"/>
+                                <state key="normal" title="Zoom to user location"/>
+                                <connections>
+                                    <action selector="zoomToUserPressed:" destination="je6-sN-qWu" eventType="touchUpInside" id="AZU-Cc-mS0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMW-Em-TZc">
+                                <rect key="frame" x="218" y="72" width="141" height="30"/>
+                                <state key="normal" title="Drop pin near center"/>
+                                <connections>
+                                    <action selector="dropPinPressed:" destination="je6-sN-qWu" eventType="touchUpInside" id="c5W-gA-thb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bK7-hT-kDx" firstAttribute="top" secondItem="XsY-wb-tGa" secondAttribute="top" constant="8" id="6Yo-oj-cCQ"/>
+                            <constraint firstItem="bK7-hT-kDx" firstAttribute="leading" secondItem="XsY-wb-tGa" secondAttribute="leading" constant="16" id="LxT-ax-O78"/>
+                            <constraint firstItem="9rH-dl-SIr" firstAttribute="top" secondItem="bK7-hT-kDx" secondAttribute="bottom" constant="8" id="PmX-te-9r9"/>
+                            <constraint firstItem="PMW-Em-TZc" firstAttribute="top" secondItem="XsY-wb-tGa" secondAttribute="top" constant="8" id="RCX-b7-qB3"/>
+                            <constraint firstItem="XsY-wb-tGa" firstAttribute="trailing" secondItem="PMW-Em-TZc" secondAttribute="trailing" constant="16" id="S1x-mj-0es"/>
+                            <constraint firstItem="XsY-wb-tGa" firstAttribute="trailing" secondItem="9rH-dl-SIr" secondAttribute="trailing" id="cp5-zX-FKX"/>
+                            <constraint firstItem="XsY-wb-tGa" firstAttribute="bottom" secondItem="9rH-dl-SIr" secondAttribute="bottom" id="fsn-pV-Uhn"/>
+                            <constraint firstItem="9rH-dl-SIr" firstAttribute="leading" secondItem="XsY-wb-tGa" secondAttribute="leading" id="n0t-ic-zpM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XsY-wb-tGa"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Maps" id="SBh-oK-tOt"/>
+                    <connections>
+                        <outlet property="myMapView" destination="9rH-dl-SIr" id="Fdt-Wm-iXd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eck-Zs-eTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152.8000000000002" y="-365.66716641679164"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KvB-8x-dcj">

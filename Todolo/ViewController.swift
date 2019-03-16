@@ -83,7 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func localNotePressed(_ sender: UIButton) {
         // Skapa notis
-        let date = Date(timeIntervalSinceNow: 30) // Bör inte vara mindre än 30 sek (prova att öka denna om notisen inte dyker upp)
+        let date = Date(timeIntervalSinceNow: 10)
         LocalNotificationHelper.shared.scheduleLocalNotification(date: date, id:noteId, title: "Hej", body: "Det här är innehållet i en notis", extra: "Gömd info jag vill skicka med, kanske ett id?")
         let alert = UIAlertController(title: "Note scheduled", message: "Successfully scheduled local notification in 30 seconds", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))

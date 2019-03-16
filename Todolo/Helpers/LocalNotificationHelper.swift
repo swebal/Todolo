@@ -48,7 +48,7 @@ class LocalNotificationHelper : NSObject, UNUserNotificationCenterDelegate {
                 content.categoryIdentifier = LocalNotificationHelper.categoryIdentifier
                 // Datum
                 let calendar = Calendar.current
-                let components = calendar.dateComponents([Calendar.Component.year, Calendar.Component.month, Calendar.Component.day, Calendar.Component.hour, Calendar.Component.minute], from: date)
+                let components = calendar.dateComponents([Calendar.Component.year, Calendar.Component.month, Calendar.Component.day, Calendar.Component.hour, Calendar.Component.minute, Calendar.Component.second], from: date)
                 // Skall avfyras på en kalenderdag
                 let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
                 // Förfrågan för att boka notis

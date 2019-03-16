@@ -16,6 +16,8 @@
 		2893CA582227E62F0031C42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2893CA562227E62F0031C42D /* LaunchScreen.storyboard */; };
 		61C5576C223CFBA80052466D /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */; };
 		61C5576E223D31870052466D /* WebRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C5576D223D31870052466D /* WebRequestHelper.swift */; };
+		61C55771223D46610052466D /* UserLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C55770223D46610052466D /* UserLocationHelper.swift */; };
+		61C55773223D46800052466D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C55772223D46800052466D /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		2893CA592227E62F0031C42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
 		61C5576D223D31870052466D /* WebRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRequestHelper.swift; sourceTree = "<group>"; };
+		61C55770223D46610052466D /* UserLocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationHelper.swift; sourceTree = "<group>"; };
+		61C55772223D46800052466D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 				2893CA592227E62F0031C42D /* Info.plist */,
 				2893CA562227E62F0031C42D /* LaunchScreen.storyboard */,
 				2893CA512227E6290031C42D /* Main.storyboard */,
+				61C55772223D46800052466D /* MapViewController.swift */,
 				283047A622311EFD00E5BCC5 /* Post.swift */,
 				283047A422311EE200E5BCC5 /* Todo.swift */,
 				2893CA4F2227E6290031C42D /* ViewController.swift */,
@@ -79,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */,
+				61C55770223D46610052466D /* UserLocationHelper.swift */,
 				61C5576D223D31870052466D /* WebRequestHelper.swift */,
 			);
 			path = Helpers;
@@ -159,8 +165,10 @@
 				283047A522311EE200E5BCC5 /* Todo.swift in Sources */,
 				61C5576E223D31870052466D /* WebRequestHelper.swift in Sources */,
 				2893CA4E2227E6290031C42D /* AppDelegate.swift in Sources */,
+				61C55771223D46610052466D /* UserLocationHelper.swift in Sources */,
 				283047A722311EFD00E5BCC5 /* Post.swift in Sources */,
 				61C5576C223CFBA80052466D /* LocalNotificationHelper.swift in Sources */,
+				61C55773223D46800052466D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
