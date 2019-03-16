@@ -58,12 +58,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func dropPinPressed(_ sender: UIButton) {
         // Hämta koordinated i mitten av kartan och placera en nål i närheten
-        let centerCoordinate = myMapView.centerCoordinate
-        let randomLatDiff = (Double(arc4random_uniform(100))/100-0.5)/100
-        let randomLonDiff = (Double(arc4random_uniform(100))/100-0.5)/100
+        let center = myMapView.region.center
+        let span = myMapView.region.span
+        let randomLatDiff = (Double(arc4random_uniform(10))/10-0.5)*span.latitudeDelta
+        let randomLonDiff = (Double(arc4random_uniform(10))/10-0.5)*span.longitudeDelta
         // Skapa ny annotation
         let randomAnnotation = MKPointAnnotation()
-        randomAnnotation.coordinate = CLLocationCoordinate2DMake(centerCoordinate.latitude+randomLatDiff, centerCoordinate.longitude+randomLonDiff)
+        randomAnnotation.coordinate = CLLocationCoordinate2DMake(center.latitude+randomLatDiff, center.longitude+randomLonDiff)
         randomAnnotation.title = "Titel"
         randomAnnotation.subtitle = "Undertitel"
         myMapView.addAnnotation(randomAnnotation)

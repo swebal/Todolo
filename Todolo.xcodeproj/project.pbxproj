@@ -14,6 +14,8 @@
 		2893CA532227E6290031C42D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2893CA512227E6290031C42D /* Main.storyboard */; };
 		2893CA552227E62F0031C42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2893CA542227E62F0031C42D /* Assets.xcassets */; };
 		2893CA582227E62F0031C42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2893CA562227E62F0031C42D /* LaunchScreen.storyboard */; };
+		6137EBE6223D966400B45414 /* BackgroundFetchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6137EBE5223D966400B45414 /* BackgroundFetchHelper.swift */; };
+		6137EBE8223DA00D00B45414 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6137EBE7223DA00D00B45414 /* ScannerViewController.swift */; };
 		61C5576C223CFBA80052466D /* LocalNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */; };
 		61C5576E223D31870052466D /* WebRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C5576D223D31870052466D /* WebRequestHelper.swift */; };
 		61C55771223D46610052466D /* UserLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C55770223D46610052466D /* UserLocationHelper.swift */; };
@@ -30,6 +32,8 @@
 		2893CA542227E62F0031C42D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2893CA572227E62F0031C42D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2893CA592227E62F0031C42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6137EBE5223D966400B45414 /* BackgroundFetchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchHelper.swift; sourceTree = "<group>"; };
+		6137EBE7223DA00D00B45414 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationHelper.swift; sourceTree = "<group>"; };
 		61C5576D223D31870052466D /* WebRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRequestHelper.swift; sourceTree = "<group>"; };
 		61C55770223D46610052466D /* UserLocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationHelper.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 				2893CA512227E6290031C42D /* Main.storyboard */,
 				61C55772223D46800052466D /* MapViewController.swift */,
 				283047A622311EFD00E5BCC5 /* Post.swift */,
+				6137EBE7223DA00D00B45414 /* ScannerViewController.swift */,
 				283047A422311EE200E5BCC5 /* Todo.swift */,
 				2893CA4F2227E6290031C42D /* ViewController.swift */,
 			);
@@ -83,6 +88,7 @@
 		61C5576F223D32360052466D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6137EBE5223D966400B45414 /* BackgroundFetchHelper.swift */,
 				61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */,
 				61C55770223D46610052466D /* UserLocationHelper.swift */,
 				61C5576D223D31870052466D /* WebRequestHelper.swift */,
@@ -164,11 +170,13 @@
 				2893CA502227E6290031C42D /* ViewController.swift in Sources */,
 				283047A522311EE200E5BCC5 /* Todo.swift in Sources */,
 				61C5576E223D31870052466D /* WebRequestHelper.swift in Sources */,
+				6137EBE8223DA00D00B45414 /* ScannerViewController.swift in Sources */,
 				2893CA4E2227E6290031C42D /* AppDelegate.swift in Sources */,
 				61C55771223D46610052466D /* UserLocationHelper.swift in Sources */,
 				283047A722311EFD00E5BCC5 /* Post.swift in Sources */,
 				61C5576C223CFBA80052466D /* LocalNotificationHelper.swift in Sources */,
 				61C55773223D46800052466D /* MapViewController.swift in Sources */,
+				6137EBE6223D966400B45414 /* BackgroundFetchHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
