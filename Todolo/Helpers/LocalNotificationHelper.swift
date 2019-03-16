@@ -12,7 +12,10 @@ import UserNotifications
 class LocalNotificationHelper : NSObject, UNUserNotificationCenterDelegate {
     
     static let categoryIdentifier = "TODOLO_CATEGORY"
+    static let notificationReceived = "NOTIFICATION_RECEIVED"
+    static let tappedNotification = "NOTIFICATION_TAPPED"
     static let shared = LocalNotificationHelper()
+    var showNotificationsInForeground = true
     
     override init() {
         super.init()
@@ -65,14 +68,18 @@ class LocalNotificationHelper : NSObject, UNUserNotificationCenterDelegate {
     // Visar notis i förgrunden ifall appen är aktiv
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Did receive local notification")
-        let name = NSNotification.Name(notification.request.identifier)
-        NotificationCenter.default.post(name: name, object: nil)
-        completionHandler([.alert, .badge, .sound])
+        let name = NSNotification.Name(LocalNotificationHelper.notificationReceived)
+        NotificationCenter.default.post(name: name, object: notification.request.identifier)
+        if showNotificationsInForeground {
+            completionHandler([.alert, .badge, .sound])
+        }
     }
     
     // Hantera knapptryckningar i en notis
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("User did tap in notification")
+        let name = NSNotification.Name(LocalNotificationHelper.tappedNotification)
+        NotificationCenter.default.post(name: name, object: response.notification.request.identifier)
         completionHandler()
     }
 }
