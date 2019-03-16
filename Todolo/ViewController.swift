@@ -70,14 +70,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let data = todo.data()
             WebRequestHelper.shared.postDictionary(method: "todos", params: data) { (statusCode) in
                 print("Status: \(statusCode)")
+                let result = "Status: \(statusCode)"
+                let alert = UIAlertController(title: result, message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
-        } else if posts.count > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(posts.count)))
-            let post = posts[randomIndex]
-            let data = post.data()
-            WebRequestHelper.shared.postDictionary(method: "posts", params: data) { (statusCode) in
-                print("Status: \(statusCode)")
-            }
+        } else {
+            let alert = UIAlertController(title: "Must get todos before posting object", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
