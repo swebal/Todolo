@@ -31,6 +31,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DataManager.shared.data.append("Bitar")
+        
         // Ange datakälla och delegate för tabellen
         self.objectTableView.dataSource = self
         self.objectTableView.delegate = self

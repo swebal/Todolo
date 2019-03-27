@@ -16,6 +16,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("Data: \(DataManager.shared.data.count)")
         // Do any additional setup after loading the view.
         
         // Observera notiser för uppdateringar av användarens plats
