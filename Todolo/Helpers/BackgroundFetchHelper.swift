@@ -14,7 +14,7 @@ class BackgroundFetchHelper: NSObject {
     
     override init() {
         super.init()
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+//        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
     }
     
     func fetchWithCompletionHandler(completion: @escaping (UIBackgroundFetchResult) -> Void) {

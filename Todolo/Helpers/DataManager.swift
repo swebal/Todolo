@@ -14,9 +14,37 @@ class DataManager: NSObject {
     
     // Lägg till all data du vill dela mellan klasser här!
     var data = [String]()
+    var currentPost:Post?
+    var currentTodo:Todo?
     
-    override init() {
+    var f:Float = 1.9
+    
+    func saveAll() {
+        saveData()
+        saveCurrentPost()
+    }
+    
+    func appendData(string:String) {
+        data.append(string)
+        saveData()
+    }
+    
+    private func saveData() {
+        UserDefaults.standard.set(data, forKey: "data")
+    }
+    
+    private func saveCurrentPost() {
+        UserDefaults.standard.set(currentPost?.data(), forKey: "currentPost")
+    }
+    
+    private func loadAll() {
+        data = UserDefaults.standard.array(forKey: "data") as! [String]
+//        currentPost = Post(data: UserDefaults.standard.dictionary(forKey: "currentPost")!)
+    }
+    
+    private override init() {
         super.init()
+        loadAll()
         print("Jag lever!")
     }
 }

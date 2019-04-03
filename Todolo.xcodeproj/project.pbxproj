@@ -91,10 +91,10 @@
 			isa = PBXGroup;
 			children = (
 				6137EBE5223D966400B45414 /* BackgroundFetchHelper.swift */,
+				28C43750224B732C000C66FC /* DataManager.swift */,
 				61C5576B223CFBA80052466D /* LocalNotificationHelper.swift */,
 				61C55770223D46610052466D /* UserLocationHelper.swift */,
 				61C5576D223D31870052466D /* WebRequestHelper.swift */,
-				28C43750224B732C000C66FC /* DataManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

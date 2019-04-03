@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         DataManager.shared.data.append("Bitar")
+        UserDefaults.standard.object(forKey: "Hello")
         
         // Ange datakälla och delegate för tabellen
         self.objectTableView.dataSource = self
@@ -136,6 +137,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        if (todos.count > 0) {
+            DataManager.shared.currentTodo = todos[index]
+        }
+        if (posts.count > 0) {
+            DataManager.shared.currentPost = posts[index]
+        }
+    }
+    
     // MARK: Notification selectors
     
     @objc func localNotificationReceived(notification:Notification) {
@@ -145,7 +156,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         if id == noteId {
             // Ändra färg på knapp när notisen tas emot
-            noteButton.setTitleColor(UIColor.green, for: UIControl.State.normal)
+            noteButton.setTitleColor(UIColor.green, for: UIControlState.normal)
         }
     }
     
@@ -156,7 +167,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         if id == noteId {
             // Ändra färg på knapp när notisen tas emot
-            noteButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+            noteButton.setTitleColor(UIColor.red, for: UIControlState.normal)
         }
     }
     
@@ -171,30 +182,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        // Local variable inserted by Swift 4.2 migrator.
-        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
-        // Använd UIImagePickerControllerOriginalImage nedan om du inte visar editorn ovan!
-        guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else {
-            return
-        }
-        print("Will add image to view...")
-        let imageView = UIImageView(image: pickedImage)
-        // Visa bara en liten bild istället för en jättestor
-        let ratio = imageView.frame.size.width / imageView.frame.size.height
-        let thumbnail = CGFloat(100)
-        let randomX = CGFloat(arc4random_uniform(UInt32(self.view.frame.size.width-thumbnail)))
-        let randomY = CGFloat(arc4random_uniform(UInt32(self.view.frame.size.height-thumbnail/ratio)))
-        imageView.frame = CGRect(x: randomX, y: randomY, width: thumbnail, height: thumbnail/ratio)
-        self.view .addSubview(imageView)
-        // Lägg till en tap gesture så att man kan klicka bort bilden från vyn
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.imageTapped)))
-        // Stäng bildvisaren eller kameran
-        dismiss(animated: true, completion: nil)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("hämtade en bild")
     }
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//
+//        // Local variable inserted by Swift 4.2 migrator.
+//        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+//
+//        // Använd UIImagePickerControllerOriginalImage nedan om du inte visar editorn ovan!
+//        guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else {
+//            return
+//        }
+//        print("Will add image to view...")
+//        let imageView = UIImageView(image: pickedImage)
+//        // Visa bara en liten bild istället för en jättestor
+//        let ratio = imageView.frame.size.width / imageView.frame.size.height
+//        let thumbnail = CGFloat(100)
+//        let randomX = CGFloat(arc4random_uniform(UInt32(self.view.frame.size.width-thumbnail)))
+//        let randomY = CGFloat(arc4random_uniform(UInt32(self.view.frame.size.height-thumbnail/ratio)))
+//        imageView.frame = CGRect(x: randomX, y: randomY, width: thumbnail, height: thumbnail/ratio)
+//        self.view .addSubview(imageView)
+//        // Lägg till en tap gesture så att man kan klicka bort bilden från vyn
+//        imageView.isUserInteractionEnabled = true
+//        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.imageTapped)))
+//        // Stäng bildvisaren eller kameran
+//        dismiss(animated: true, completion: nil)
+//    }
     
     @objc func imageTapped(tapGesture:UITapGestureRecognizer) {
         // Ta bort bilden som innehåller denna tap
@@ -224,12 +239,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 
 
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-	return input.rawValue
-}
+//// Helper function inserted by Swift 4.2 migrator.
+//fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+//    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+//}
+//
+//// Helper function inserted by Swift 4.2 migrator.
+//fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+//    return input.rawValue
+//}

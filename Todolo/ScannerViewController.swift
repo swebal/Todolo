@@ -56,7 +56,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
-        view.bringSubviewToFront(closeButton)
+        view.bringSubview(toFront: closeButton)
         
         captureSession.startRunning()
     }
